@@ -1,0 +1,21 @@
+type Book {
+  id: ID
+  name: String!
+  price: Float!
+  author: Author
+}
+
+input NewBookInput {
+  name: String!
+  price: Float!
+  author: String!
+}
+
+extend type Query {
+  books: [Book!]!
+  book(id: ID!): Book
+}
+
+extend type Mutation {
+  newBook(input: NewBookInput): Book!
+}
